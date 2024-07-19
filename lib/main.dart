@@ -29,6 +29,30 @@ class Ballpage extends StatelessWidget {
       body: ball(),
     );
   }
+}gi
+class ball extends StatefulWidget {
+  const ball({super.key});
+
+  @override
+  State<ball> createState() => _ballState();
 }
 
+class _ballState extends State<ball> {
+  int ballNumber = 1;
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: TextButton(
+          onPressed: (){
+            setState(() {
+               ballNumber = Random().nextInt(5)+1;
+            });
+            },
+          child: Image(
+              image: AssetImage('images/ball$ballNumber.png')
+          ),
+        )
+    );
+  }
+}
 
